@@ -1,0 +1,8 @@
+für arbeiten mit dev-cpp müssen einige änderungen in db vorgenommen werden!
+in db_config.h:
+	#define HAVE_MUTEX_WIN32 1 
+	DEAKTIVIEREN, stattdessen
+	#define HAVE_MUTEX_WIN32_GCC 1
+	aktivieren. 
+	
+anschließend vs projekt importieren, dann loslegen :-)

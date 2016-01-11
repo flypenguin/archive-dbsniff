@@ -1,0 +1,22 @@
+USAGE
+
+this describes only the throughput standard mode for now. 
+
+basically the throughput mode is available via the "-t" switch. 
+the throughput timespan has to be set via the "-d" switch and has to be
+given in MICROSECONDS. the timespan is the time for which the throughput 
+calculation applies. basically the formula:
+                bytes_seen / timespan
+is used for calculation, based on the capture time stamp of the first packet. 
+example: in the capture files are four packets in one second, one each 0.25
+seconds. let each packet be 1000 bytes in size (including all headers, also 
+ethernet!). set the timespan to 500000 with "-d 500000" to set half a second
+as base. 
+then the sniffer will see two packets in the first half (again: relative to
+the first packet timestamp of the capture file), adds up the bytes and counts 
+the packets.
+when seeing the third packet (from which the timestamp is more than half a 
+second after the first one), it will calculate the following: 
+        2000 bytes / 0.5 seconds = 4000 bytes / seconds
+        2 packets / 0.5 seconds  = 4 packets / second
+and output this information. 

@@ -1,0 +1,155 @@
+2005.07.10
+
+	* the use of Sleep()/usleep() is a Windows/non-Windows issue, not
+	  a compiler one (fixed bug in winwrap.h)
+	* added (working) dev-c++ project files for loss_chk/loss_srv
+
+2005.07.02
+
+	* created visual studio project files for all programs (run fine)
+	* revisited directory structure (msvc, devcpp)
+	* added readme files for visual studio & devpp
+	* added project files for extsniff,nwait,npush for devcpp 
+
+2005.07.01
+
+	* (extsniff) re-validated the old dev-c++ project file for windows, 
+	  along with a readme file containing information about compiling the 
+	  thing. the other programs (wdate, etc.) will follow soon.
+
+2005.01.30
+
+	* (extsniff) summary mode now counts the complete packet size in
+	   pack_size field, including ethernet headers. 
+        * (extsniff) verbose output was modified a bit in summary mode.
+
+2005.01.23
+
+	* (extsniff) fixed bug in "display contents" mode which would 
+	  occasionally print [0] bytes even if the packet carried no paylaod.
+
+2005.01.22
+
+	* (extsniff) throughput mode added / made working. very good :-)
+
+2004.11.25
+
+	* (extsniff) fixed some nasty bugs in the main packet capturing event 
+	  loop
+
+2004.11.17
+
+	* (extsniff) fixed duration calculation bug in summary mode.
+	* (extsniff) added -x switch to reverse reference IP meaning
+
+2004.11.04
+
+	* EXTSNIFF DAY
+	* gen: cleanups and bug fixes in main loop
+	* gen: got rid of db stuff (enable again with -DUSE_DB)
+	* gen: removed extdump from vc++ workspace
+	* usability: implemented output to file
+	* usability: reworked & changed usage flags quite massively
+	* print header mode: beautified output
+	* print header mode: added times since start / last packet via -v
+	* summary mode: massive code cleanup 
+	* summary mode: beautified output 
+	* summary mode: added "average packet sending distance in ms"
+	* summary mode: implemented both average payload and packet size
+	* summary mode: implemented both payload and size distribution
+	* BUG FIXES, BUG FIXES, ...
+
+2004.09.20
+
+	* 18:18h CET: UPDATE
+	* fixed critical bugs in loss_srv, completely changed network 
+	  communications to be more reliable and robust. 
+	* added payload size display for control
+	* added thousands of (#ifdef _DEBUG ... #endif)'s for better debugging
+	  :-)
+	* added continuous option to loss_srv and a possibility to reset the 
+	  thing. 
+	* fixed loss value output: was between 0..1 instead of 0..100
+	* added some debug outputs
+	
+2004.09.17
+
+	* added tool for loss-checking communication channels based on 
+	  npush/nwait code. works fine :)
+	* fixed spelling error in npush help ... 
+
+2004.09.14
+
+	* added wdate executable for displaying useful date strings (including
+	  unix time seconds) in windows
+	* renamed windows.c/h -> winwrap.c/h, linux.h -> linwrap.h
+	* replaced (UNCHECKED) windows.h with winwrap.h in all files ....... 
+
+2004.09.02
+
+	* Summary mode: added average payload size
+	* average size ONLY takes packets with ANY payload into account - so all
+	  packets NOT having payload are NOT taken into the calculation
+	* fixed bugs
+	* fixed compiler warnings
+	* fixed gcc / msvc printf() imcompatibility concerning %llu and %I64u
+	  by defining a macro in windows.h / linux.h
+
+2004.09.01
+
+	* fixed bug in summary mode
+	* marked broken features broken ...
+	* added multiple use of -D for "increased" output on summary mode
+	* deleted configfile code (was not used anyways)
+	* got rid of some compiler warnings
+
+2004.08.31
+
+	* added npush / nwait in linux Makefile
+	* added windows.c, windows.h and linux.h to provide some wrapper 
+	  functions to eliminate the need for #ifdef WIN32 concerning network 
+	  functionality
+
+2004.08.26
+
+	* added -s switch for nwait. nwait will only exit if npush 
+	  had the same string set. quite good for preventing race
+	  conditions :-)
+
+2004.08.25 
+
+	* added npush and nwait, VC++ only yet, no linux makefile
+	* added -h help option of npush / nwait
+	* website changes
+
+2004.08.11
+
+	* hands on throughput mode: should work again. removed
+	  debug stuff & fixed the calculations. 
+
+2004.08.09
+
+	* deleted extdump from linux makefile
+	* added -S mode ("S"ummary mode)
+
+2004.07.22 
+
+	* ported to ms visual studio .net - devcpp wouldn't debug any more :-)
+	* old dev-cpp project file should STILL be valid!!
+	* relies on the following directory structure: 
+
+		<parent>
+			|
+			---> csniff
+			|    |---> src
+			|
+			|--> wpdpack (winpcap lib)
+			|
+			|--> db-4.2.52.NC (berkeley db)
+			     |---> build_win32
+			           |--->Debug_static
+			           |--->Release_static    
+			           
+	* tested: extended throughput mode.
+	* untested: database mode, throughput mode. though the latter should
+	  still work without flaws, but the dump tool MAY have to get rewritten.

@@ -1,0 +1,991 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  <style type="text/css">
+/* <![CDATA[ */ @import "http://www.tigris.org/branding/css/tigris.css"; @import "http://www.tigris.org/branding/css/inst.css"; /* ]]> */
+  </style>
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="http://www.tigris.org/branding/css/print.css" media="print">
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  <script src="http://www.tigris.org/branding/scripts/tigris.js" type="text/javascript">
+  </script>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>dbsniff project overview</title>
+  <meta content="axel bock" name="author">
+</head>
+
+
+<body>
+
+
+
+
+
+
+
+<span style="font-weight: bold;"><br>
+
+
+
+
+
+
+
+dbsniff</span> is a set of tools I used for some scripting and
+network dump file analyzing for my diploma thesis. The tools are mainly
+written for that purpose, although I sometimes wanted one of them
+earlier, but never got the time to implement them. Until now :)<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+Contained programs are: <br>
+
+
+
+
+
+
+
+<span style="font-weight: bold;"><span style="font-weight: bold;"></span><br>
+
+
+
+
+
+
+
+</span>
+<div style="margin-left: 40px;"><span style="font-weight: bold;">esniff</span> (formerly <span style="font-weight: bold;">extsniff</span>) is my
+network analysis
+tool. It is meant as a <span style="font-weight: bold;">simple replacement for tcpdump</span>, easier to operate, but - by far! - not as powerful. Main purpose is to <span style="font-weight: bold;">calculate some statistical data</span>, and to print out this data in a tabular way to be processed by tools.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<span style="font-weight: bold;">nwait</span> and <span style="font-weight: bold;">npush</span> are two
+command line tools who
+implement the MS-DOS command.com / cmd.exe <span style="font-style: italic;">pause</span>-functionality
+over the
+network: <span style="font-weight: bold;">nwait</span>
+waits until it
+gets "pushed" by <span style="font-weight: bold;">npush</span>.
+<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<span style="font-weight: bold;">wdate</span> is a
+program which does
+quite the same as the <span style="font-family: Courier New;">date</span>
+program on Unix/Linux, but on Windows - it prints user-formatted time
+strings on the command line. Useful for scripting. Currently only
+working on Windows (well, Linux is simply untested, but who would need
+that there, anyways??)<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<span style="font-weight: bold;">loss_chk</span> and
+<span style="font-weight: bold;">loss_srv</span> are
+for measuring the
+loss-rate of a given communications channel. Only requirement: is has
+to be able to transport UDP traffic. <br>
+
+
+
+
+
+
+
+<span style="font-weight: bold;"></span><span style="text-decoration: underline;"></span><br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+So it's nothing professional, and development is unregular at best, but
+it is not already present anywhere else as far as I know (otherwise I
+would not have started this :-). <br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<h3>Content</h3>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<ul style="margin-left: 40px;">
+
+
+
+
+
+
+
+  <li><a href="#news">News</a></li>
+
+
+
+
+
+
+
+  
+
+
+
+  <li><a href="#issues">Known issues</a><br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><a href="#installation">Installation</a><br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><a href="#epilogue">Last Words</a></li>
+
+
+
+
+
+
+
+  <li><a href="#resources">Resources</a><br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<h3><a name="news"></a>News <small>(yes,
+it's active :-)</small><br>
+
+
+
+
+
+
+
+</h3>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<div style="margin-left: 40px;">
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2005.11.12:</span> <span style="font-style: italic;">esniff:</span>
+Changed behavior: The default mode is now "-p", and now it is possible
+to set more than one flag. It's stupid, because the output is not
+readable, but it's possible :) . Fixed some help output issues, too (I
+remember having done that). Also updated downloadable windows
+executables.<span style="font-weight: bold;"></span></li>
+
+  <li><span style="font-weight: bold;">2005.07.10: </span><span style="font-style: italic;">loss_chk/loss_srv:</span> added working project files for&nbsp;<a href="http://www.bloodshed.net/">Dev-C++</a> (fixed bug in winwrap.h which prevented compiling)<span style="font-weight: bold;"></span></li>
+
+
+  <li><span style="font-weight: bold;">2005.07.02:</span> <span style="font-style: italic;">extsniff/nwait/npush:</span>
+re-created working&nbsp;<a href="http://www.bloodshed.net">Dev-C++</a>
+project files along with a few build instructions.&nbsp;<span style="font-style: italic;"></span><br>
+
+
+
+
+
+
+    <span style="font-style: italic;">extsniff/npush/nwait/loss_chk/loss_srv/wdate:</span>&nbsp;Re-created broken MS
+Visual Studio projects. Compiles fine now :) Binary versions now available for download, compiled with Visual Studio (see&nbsp;<a href="#installation">installation</a> section for that). Also available now are source distributions as ZIP archive, just for convenience.&nbsp;</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2005.01.23:</span>
+    <span style="font-style: italic;">extsniff:</span>
+fixed one bug in "print
+contents" mode and made an output correction. <br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2005.01.22:</span>
+    <span style="font-style: italic;">extsniff:</span>
+throughput mode
+(standard) now works beautifully. <br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.11.25:</span><span style="font-style: italic;"> extsniff:</span>fixed
+some nasty bugs in
+the main event loop for packet capturing.<br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.11.17:</span>
+    <span style="font-style: italic;">extsniff:</span>
+fixed a bug in
+calculation of capture session duration and added a switch to reverse
+the meaning of the reference IP<br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.11.05:</span>
+    <span style="font-style: italic;">extsniff:</span>
+Massive code cleanups,
+massive flag changes, massive bug fixes. Just massive. Added some
+features (more information in print packet header mode and summary
+mode, file output possibility), and made some things more clear.<br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.09.20:</span>
+Added
+continous option to <span style="font-family: Courier New; font-weight: bold;">loss_chk</span>
+and a possibility to remote-reset a test. Fixed loss percentage output
+in <span style="font-weight: bold; font-family: Courier New;">loss_srv</span>.
+Already made some changes of the Linux Makefile, so both utilities
+compile on Linux without problems. Extdump still broken ... (no one
+needs it anyways) <br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;">UPDATE 18:45h CET:</span>
+uploaded
+the <span style="font-style: italic;">really</span>
+working
+versions with <span style="text-decoration: underline;">BIG</span>
+changes to the communications code. Added payload size display.<br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.09.15:</span>
+Added <span style="font-family: Courier New; font-weight: bold;">loss_chk</span>
+and <span style="font-weight: bold; font-family: Courier New;">loss_srv</span>,
+two utilities based on npush/nwait for checking loss ratio of a
+communication channel. Windows only for now, but should compile on
+Linux like a charm (note: I said "should" ... :-)<br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.09.15:</span>
+Added <span style="font-family: Courier New; font-weight: bold;">wdate</span>,
+a
+utility to print formatted time / date strings and Unix-time on Windows
+(basically a primitive "date" from *nix using <span style="font-family: Courier New;">strftime()</span>)
+and&nbsp; did
+some header cleaning - there are wrapper headers now for Windows and
+Linux. <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.09.02:</span>
+Hands on
+summary mode:
+added average payload size (calculation ignores packets with zero
+payload), fixed some internal stuff and warnings. </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.09.01:</span>
+Hands on
+summary mode:
+added multiple use of -D and fixed a bug which falsely counted
+TCP-decoded UDP packets. </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.08.31:</span>
+added nwait /
+npush to Linux Makefile, compiles without problems now. Done some very
+minor header
+stuff to overcome some Windows / Linux issues in network
+initialization. </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">2004.08.26:</span>
+added -s
+switch to npush/nwait - nwait will only exit if npush has same setting
+(though it's not set on nwait settings on npush have no effect)</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<h3><a name="installation"></a>Installation</h3>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+The current compilation status is as follows: <br>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Linux:</span>&nbsp;Builds
+on
+Debian last time I tried.
+Not statically (as intended originally), but it builds.<span style="text-decoration: underline;"></span><br>
+
+
+
+
+
+
+
+    <span style="font-weight: bold;"></span></li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Windows
+(Visual Studio
+.NET):</span> Completely new Visual Studio project files, working perfectly. <br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Windows
+(Dev-C++):</span> Builds, project files included (but only for esniff, npush, nwait, the others will follow).&nbsp;</li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Windows and
+Cygwin/Mingw:</span>
+Makefile included, but could be out of date and not work. Will be checked soon. <br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><span style="font-weight: bold;">Any other:</span>
+if it's *nix,
+it should do. If not, it might do. Work is needed in any case then,
+though ...</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+Of course you can always download the <a href="latest_binary_windows.zip">latest
+binaries</a> for Windows, or a snapshot of the&nbsp;<a href="latest-source.zip">latest source</a> (but this might not be the most current one, be warned). For any *nix like OS I do not provide
+binaries, so you have to check out the sources via CVS and pray and
+type "make".
+They should be in a state which allows compilation most of the time.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<h3><a name="issues"></a>Known issues</h3>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li>The code is quite messy, I think.</li>
+
+
+
+
+
+
+
+  <li>The throughput modes of extsniff are probably usable. (The
+probably is the issue :-)</li>
+
+
+
+
+
+
+
+  <li>Statistics mode broken most probably. If not you won't get
+the
+data :-)<br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<h3><a name="epilogue"></a>Last words</h3>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+A remark: If you stumble on this page, <span style="font-style: italic;">and</span> if you should
+find
+something on here useful, I would be happy if you'd drop me a mail. <br>
+
+
+
+
+
+
+
+My email is <span style="font-weight: bold;">the-me (AT@)
+the-me
+(DOT.) de</span>. Thanks!<br>
+
+
+
+
+
+
+
+<br style="font-weight: bold;">
+
+
+
+
+
+
+
+<h3><a name="resources"></a>Related resources
+(or: requirements)<br>
+
+
+
+
+
+
+
+</h3>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+  <li><a href="http://winpcap.polito.it">WinPcap</a>
+- the Windows port
+of the libPcap packet capturing library</li>
+
+
+
+
+
+
+
+  <li><a href="http://www.sleepycat.com">Sleepycat
+Berkeley DB</a> -
+the binary "database" used. Small and fast. <br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+  <li><a href="http://www.bloodshed.net">Dev-C++</a>
+- the compiler
+used on Windows. A free MinGW based IDE, quite good (and <span style="font-weight: bold;">free</span>).</li>
+
+
+
+
+
+
+
+  <li>Microsoft Visual Studio .NET - I used that to create most
+of the
+programs</li>
+
+
+
+
+
+
+
+  <li><a href="http://www.gpf-comics.com">GPF-Comics.com</a>
+and <a href="http://www.userfriendly.org">UserFriendly</a>
+- daily drugs. <br>
+
+
+
+
+
+
+
+  </li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+</body>
+</html>

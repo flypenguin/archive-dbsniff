@@ -1,0 +1,2 @@
+; dlltool --base-file C:\DOKUME~1\tm\LOKALE~1\Temp/cca01996.base --output-exp db_dll.exp --dllname db_dll.dll --output-def build_devcpp/libdb_dll.def --exclude-symbol=DllMainCRTStartup@12 --def C:\DOKUME~1\tm\LOKALE~1\Temp/cca01996.def --output-lib build_devcpp/libdb_dll.a
+EXPORTS

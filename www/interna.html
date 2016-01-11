@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <style type="text/css">
+/* <![CDATA[ */ 
+@import "http://www.tigris.org/branding/css/tigris.css"; 
+@import "http://www.tigris.org/branding/css/inst.css"; 
+/*  ]]> */
+ </style>
+  <link rel="stylesheet" type="text/css"
+ href="http://www.tigris.org/branding/css/print.css" media="print">
+  <script src="http://www.tigris.org/branding/scripts/tigris.js"
+ type="text/javascript">
+  </script>
+  <title>internal data structures</title>
+  <meta content="axel bock" name="author">
+</head>
+<body>
+<h3>Saving of information in statistical mode <span
+ style="font-style: italic;">(incomplete
+and obsolete)</span></h3>
+<br>
+The statistics are simple: based on a time interval it counts all
+sniffed packets (supported are <span style="font-style: italic;">only</span>
+tcp and udp packets!), and saves the sum of all these packets in a
+Berkeley DB database.<br>
+<br>
+The data is split into tcp/udp bytes/packets in/out, which is saved for
+every port &lt; 1024 separately. So within the database the assignments
+are as follows: <br>
+<pre style="margin-left: 40px;">[ time | port | IP ] --&gt; struct db_val<br></pre>
+As you can see the traffic is divided into the different services the
+machine encounters. Plese do not assume a sophisticated port detection
+algorithm - the "smaller" port number from the packet (src/dst port) is
+taken. The IP safed is the IP of the <span style="font-style: italic;">other</span>
+machine - the program is not (yet) ready for sniffing on a
+switch/hub/router. It has to have an "own" IP address - the one of the
+machine it is running on, so it can discard this one - so a router
+wouldn't be possible (again: yet). <br>
+<br>
+<span style="font-style: italic;">Warning: the following information is
+mostly obsolete ... :-) Go on to the next chapter.</span><br>
+<br>
+There is a second mode which is called statistical mode. In this mode
+extsniff simply counts <span style="font-style: italic;">every single
+bit</span> which is sent on the line per second. This is a very basic
+throughput sniffing. The information is saved in a file, which is done
+by writing the following struct into it every second:<br>
+<pre style="margin-left: 40px;">typedef struct {<br>    unsigned int time;<br>    unsigned long long int bps;<br>    unsigned long long int pps;<br>}TPData;<br></pre>
+Note that the statistical mode is different under linux than under
+Windows. WinPcap offers a statistical mode for doing those things,
+(linux) Pcap does not. The data gathered can be extracted with the
+accompanied tool <span style="font-weight: bold;">extdump</span>,
+which creates a comma
+separated values file with the data, which can be imported into almost
+any spreadsheet / statistical program. Note that those programs aim to
+be platform independant, it uses ANSI C
+and libraries available on many systems, at least Linux and Windows.<br>
+<br>
+<br>
+</body>
+</html>

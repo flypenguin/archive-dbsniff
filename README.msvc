@@ -1,0 +1,18 @@
+
+COMPILATION NOTES FOR MICROSOFT VISUAL STUDIO
+=============================================
+
+1. put the developer's edition of winpcap in the dbsniff directory
+2. in the dbsniff/msvc directory there are all msvc project files. 
+   open them if necessary to do the following steps (untested :)
+4. in the project settings adjust ... :
+    - the base path for the project (this should be $ProjectDir somewhere)
+    - all other paths necessary
+5. open the workspace (if not done in step 2)
+6. hit "rebuild all"
+7. find the binaries in the dbsniff/msvc_bin directory
+
+almost all (!) paths should be relative to the $(ProjectPath) variable inside 
+visual studio, so that path changing stuff should not be too much a pain. 
+
+if that's not all ... well, you're on your own :)
